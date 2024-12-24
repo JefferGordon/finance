@@ -14,26 +14,12 @@
                     </option>
                 @endforeach
             </select>
-            <select name="year" class="form-control">
-                <option value="">Seleccione un Año</option>
-                @for ($i = date('Y'); $i >= 2000; $i--)
-                    <option value="{{ $i }}" {{ request('year') == $i ? 'selected' : '' }}>
-                        {{ $i }}
-                    </option>
-                @endfor
-            </select>
-            <select name="month_id" class="form-control">
-                <option value="">Seleccione un Mes</option>
-                @foreach (\App\Models\Month::all() as $month)
-                    <option value="{{ $month->id }}" {{ request('month_id') == $month->id ? 'selected' : '' }}>
-                        {{ $month->name }}
-                    </option>
-                @endforeach
-            </select>
-    
+
+            <input type="date" name="fecha_inicio" class="form-control" value="{{ request('fecha_inicio') }}" placeholder="Fecha Inicio">
+            <input type="date" name="fecha_fin" class="form-control" value="{{ request('fecha_fin') }}" placeholder="Fecha Fin">
+
             <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Filtrar</button>
-        </form>
-    
+      </form>
         <!-- Resultados -->
         <div class="mt-6 grid grid-cols-2 gap-6">
             <div>
