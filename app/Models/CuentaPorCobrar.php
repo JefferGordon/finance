@@ -28,7 +28,7 @@ class CuentaPorCobrar extends Model
             if ($cuenta->isDirty('estado') && $cuenta->estado === 'cobrado') {
                 Transaction::create([
                     'empresa_id' => $cuenta->empresa_id,
-                    'transaction_type_id' => 1, // 1 = ingreso
+                    'transaction_type_id' => 1, 
                     'amount' => $cuenta->monto,
                     'description' => "Ingreso de cuenta por cobrar: {$cuenta->detalle}",
                     'transaction_date' => now(),
